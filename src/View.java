@@ -10,17 +10,21 @@ import javax.swing.JTextField;
 
 public class View extends JPanel {
 
+    private Controller controller;
     public Insets INSETS = new Insets(5, 5, 5, 5);
     JTextField calcField = new JTextField();
+    JButton[] buttons;
     private String[] buttonLabels = {
             "ce", "c", "erase", "/",
             "7", "8", "9", "*",
             "4", "5", "6", "-",
-            "1", "2", "3", "+"
+            "1", "2", "3", "+",
+            "0", "="
     };
-    JButton[] buttons;
 
-
+    public View(Controller controller) {
+        this.controller = controller;
+    }
 
     public void init() {
         buttons = new JButton[buttonLabels.length];
@@ -35,8 +39,10 @@ public class View extends JPanel {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    // TODO Auto-generated method stub
-                    throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+                    if (controller != null) {
+                        controller.handleButtonEvent(e);
+                    }
+
                 }
 
             });
@@ -51,12 +57,16 @@ public class View extends JPanel {
                 add(buttons[i], new GridBagConstraints(i - 8, 3, 1, 1, 1, 1, GridBagConstraints.CENTER,
                         GridBagConstraints.BOTH, INSETS, 0, 0));
 
-            } else {
+            } else if (i <= 15){
                 add(buttons[i], new GridBagConstraints(i - 12, 4, 1, 1, 1, 1, GridBagConstraints.CENTER,
                         GridBagConstraints.BOTH, INSETS, 0, 0));
 
+            } else {
+                add(buttons[i], new GridBagConstraints(2*i - 32, 5, 2, 1, 1, 1, GridBagConstraints.CENTER,
+                        GridBagConstraints.BOTH, INSETS, 0, 0));
             }
         }
 
     }
+
 }
