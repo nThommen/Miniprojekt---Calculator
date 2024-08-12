@@ -1,0 +1,15 @@
+public class CalculatorTest {
+	private Model model;
+
+	@Before
+	public void setUp() {
+		model = new Model;
+	}
+
+	@Test
+	public void testAddition() {
+		model.current.append("2+3");
+		model.updateCalcParts;
+		double result = new Controller
+	}
+}
