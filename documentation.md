@@ -1,5 +1,7 @@
 ## Model Class
 
+#### Variables
+
 **The Stringbuilder current:**
 What is currently displayed on screen. Dynamically adds new characters as the user clicks on them.
 
@@ -9,11 +11,38 @@ Only needed as a middle step to split the StringBuilder current into the ArrayLi
 **The Arraylist calcParts:**
 Mainly important for the method calculate in the Controller Class. It's an ArrayList of which the entries are the numbers that have been typed by the users and the corresponding operators between them.
 
+**The boolean calculated:**
+Tracks whether or not the last button pressed was "=". This serves to automatically erase the displayed result upon another button being pressed.
+
+#### Methods
+
+**updateCalcParts():**
+Converts the current StringBuilder "current" to a String, then splits it into an ArrayList to prepare it for the calculate()-method of the Controller class.
+
+**isInteger:**
+Can't currently remember if still needed - will check once at desktop.
+
 
 ## View Class
 
+Code self-explanatory except for...
+
+**init():**
+The for-loop needs explanation: It simply iterates over the entire JButton-array "buttons", adding an ActionListener to and placing each one in the gridBagLayout. The if- and else if-statements each are responsible for their respective row in the layout.
 
 
 ## Controller Class
 
+#### Methods:
 
+**clear():**
+Setzt "calcParts" und "current" zurück.
+
+**clearEntry():**
+Noch nicht ausgereift. Soll den letzten Eintrag löschen, welcher eingegeben wurde (im Stringbuilder "current").
+
+**calculate():**
+Wird durch den Button "=" aufgerufen.
+
+Ruft "updateCalcParts" auf (vergl. Model).
+Instanziert einen Int "i", einen String "part" und drei double "leftOperand", "rightOperand" und "res". Diese werden von den folgenden for-Loops verwendet, um nach Punkt-vor
