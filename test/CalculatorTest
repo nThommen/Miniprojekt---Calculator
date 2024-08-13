@@ -1,3 +1,9 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
 public class CalculatorTest {
 	private Model model;
 
@@ -9,14 +15,32 @@ public class CalculatorTest {
 	@Test
 	public void testAddition() {
 		model.current.append("2+3");
-		model.updateCalcParts;
-		double result = new Controller(model, new View).calculate;
+		model.updateCalcParts();
+		double result = new Controller(model, new View()).calculate();
+		assertEquals(5.0, result, 0.001);
 	}
 
+	@Test
 	public void testSubtraction() {
 		model.current.append("5-100");
-		model.updateCalcParts;
-		double result = new Controller(model, new View).calculate;
+		model.updateCalcParts();
+		double result = new Controller(model, new View()).calculate();
+		assertEquals(-95.0, result, 0.001);
+	}
 
+	@Test
+	public void testMultiplication() {
+		model.current.append("5*6");
+		model.updateCalcParts();
+		double result = new Controller(model, new View()).calculate();
+		assertEquals(30.0, result, 0.001);
+	}
+
+	@Test
+	public void testDivision() {
+		model.current.append("6/3");
+		model.updateCalcParts();
+		double result = new Controller(model, new View()).calculate();
+		assertEquals(2.0, result, 0.001);
 	}
 }
