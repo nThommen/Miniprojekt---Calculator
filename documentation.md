@@ -36,13 +36,19 @@ The for-loop needs explanation: It simply iterates over the entire JButton-array
 #### Methods:
 
 **clear():**
-Setzt "calcParts" und "current" zurück.
+Resets "calcParts" and "current".
 
 **clearEntry():**
-Noch nicht ausgereift. Soll den letzten Eintrag löschen, welcher eingegeben wurde (im Stringbuilder "current").
+Not yet fully implemented. Supposed to erase the last entry in "current".
 
 **calculate():**
-Wird durch den Button "=" aufgerufen.
+Gets called by pressing "=".
 
-Ruft "updateCalcParts" auf (vergl. Model).
-Instanziert einen Int "i", einen String "part" und drei double "leftOperand", "rightOperand" und "res". Diese werden von den folgenden for-Loops verwendet, um nach Punkt-vor
+Calls "updateCalcParts" (ref. Model).
+Instantiates an Int "i", a String "part" and three doubles "leftOperand", "rightOperand" and "res". Those are needed for the following for-loops, which happen from highest to lowest order of operation.
+
+**addSymbol():**
+Gets called by the method "handleButtonEvent" by default and appends "current" by the symbol of the pressed button.
+
+**handleButtonEvent():**
+Handles the button events through a Switch-case event.

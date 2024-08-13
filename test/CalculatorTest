@@ -10,6 +10,13 @@ public class CalculatorTest {
 	public void testAddition() {
 		model.current.append("2+3");
 		model.updateCalcParts;
-		double result = new Controller
+		double result = new Controller(model, new View).calculate;
+	}
+
+	public void testSubtraction() {
+		model.current.append("5-100");
+		model.updateCalcParts;
+		double result = new Controller(model, new View).calculate;
+
 	}
 }
