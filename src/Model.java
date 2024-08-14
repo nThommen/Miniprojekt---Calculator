@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.swing;
 
 public class Model {
 	
@@ -7,6 +8,7 @@ public class Model {
 	String calc = "";
 	ArrayList<String> calcParts = new ArrayList<>();
 	boolean calculated = false;
+	Font f = new Font("Arial", )
 
 	public void updateCalcParts() {
 		calc = current.toString();
