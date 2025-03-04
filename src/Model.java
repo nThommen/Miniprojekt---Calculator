@@ -13,13 +13,13 @@ public class Model {
 		calcParts = new ArrayList<>(Arrays.asList(calc.split("(?<=\\+|\\-|\\*|\\/)|(?=\\+|\\-|\\*|\\/)")));
 	}
 
-	public boolean isInteger(String part) {
-		try {
-			Integer.parseInt(part);
-			return true;
-		} catch (NumberFormatException e) {
-			return false;
-		}
-	}
+	// public boolean isInteger(String part) {
+	// 	try {
+	// 		Integer.parseInt(part);
+	// 		return true;
+	// 	} catch (NumberFormatException e) {
+	// 		return false;
+	// 	}
+	// }
 
 }

@@ -34,9 +34,17 @@ public class Controller {
 			String part = model.calcParts.get(i);
 
 			if (part.equals("*") || part.equals("/")) {
+	
 				double leftOperand = Double.parseDouble(model.calcParts.get(i - 1));
 				double rightOperand = Double.parseDouble(model.calcParts.get(i + 1));
 				double res;
+				if (rightOperand == 0) {
+					clear();
+					model.current.append("Error: Division by zero!");
+					System.out.println("Hallo Velo");
+					update();
+					break;
+				}
 				switch (part) {
 					case "*":
 						res = leftOperand * rightOperand;
